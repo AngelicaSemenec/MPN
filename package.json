@@ -1,0 +1,24 @@
+{
+  "name": "mpn",
+  "version": "1.0.0",
+  "description": "Mobile Private Network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BradKreager/MPN.git"
+  },
+  "keywords": [
+    "mobile",
+    "private",
+    "network"
+  ],
+  "author": "BSA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BradKreager/MPN/issues"
+  },
+  "homepage": "https://github.com/BradKreager/MPN#readme"
+}
