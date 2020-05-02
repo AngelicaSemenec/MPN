@@ -1,0 +1,25 @@
+{% block content %}
+
+<style>
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}</style>
+
+<div class="container" style="margin-top:50px">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS5hfiJ2XtRk8XwlQ5qT9nhQUmWLrSS1xTQ4PGMcHHGa-Za0_P0&usqp=CAU" style="max-width:300px; margin-top: -20px;" class="center"/>
+    <h1 style="text-align:center">Wheel-Time Streaming!</h1>
+    <p style="text-align:center; color:rgb(17, 29, 29)">Enter account information</p>
+    <hr style="color:coral;">
+    <div style="background-color:floralwhite">
+        <p></p>
+      <form action="{{ url_for('index') }}" method="post">
+          <p style="text-align:center; color:rgb(17, 29, 29)">Username: <input type="text" name="name"/></p>
+          <p style="text-align:center; color:rgb(17, 29, 29)">Password: <input type="text" password="password"/></p>
+          <p style="text-align:center"><input type="submit" value="Create Account" style="background-color:darkslategray; color:floralwhite; width:150px; height:30px"/></p>
+      <hr style="color:coral">
+    </div>
+</div>
+
+{% endblock %}

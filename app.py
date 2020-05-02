@@ -5,6 +5,8 @@ from flask_bootstrap import Bootstrap
 from filters import datetimeformat, file_type, file_name
 from resources import get_bucket, get_bucket_list
 
+from video import Video
+
 #Create Flask instance
 app = Flask(__name__)
 Bootstrap(app)
@@ -12,6 +14,42 @@ app.secret_key = 'secret'   #Not the same as s3; this is for flask
 app.jinja_env.filters['datetimeformat'] = datetimeformat    #Register the filter
 app.jinja_env.filters['file_type'] = file_type
 app.jinja_env.filters['file_name'] = file_name
+
+
+@app.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
+    return render_template('dashboard.html')
+
+
+#Index page
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        new_user = request.form['name']
+        username = set_username(new_user)
+        return render_template('index.html', username=username)
+    #else if request.method == 'GET':
+     #   return redirect(url_for('files'))
+    else:
+        username = '(no name)'
+        return render_template('index.html')  
+
+def set_username(new_name):
+    username = new_name
+    return username
+
+@app.route('/createAccount', methods=['GET', 'POST'])
+def createAccount():
+    return render_template('createAccount.html')
+
+@app.route('/settings', methods=['GET', 'POST'])
+def settings():
+    return render_template('settings.html')
+
+@app.route('/logout')
+def logout():
+    return redirect(url_for('index'))
+
 
 #--> Route for /Login
 @app.route('/login')
@@ -62,23 +100,23 @@ def buses():
 
     return render_template('buses.html', my_bucket=my_bucket, files=alerts)
 
+def gen(video):
+    for x in range(1000):
+        frame = video.get_frame()['Body'].read()
+        yield(b'--frame\r\n'
+              b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(gen(Video()), mimetype='multipart/x-mixed-replace; boundary=frame')
+
 #--> Route for /BusID
-@app.route('/busID')
-def busID():
+@app.route('/live_stream')
+def live_stream():
     #--> Display bus
         #- LiveStream Location Time
-    return
-
-#Index page
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        bucket = request.form['bucket']
-        session['bucket'] = bucket
-        return redirect(url_for('files'))
-    else:
-        buckets = get_bucket_list()
-        return render_template('index.html', buckets=buckets)    #Renders the template
+    #Function generator to create video stream
+    return render_template('video.html')
 
 #--> Pass file extension with /files
 @app.route('/files')
