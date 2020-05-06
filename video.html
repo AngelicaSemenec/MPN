@@ -1,12 +1,14 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <div class="row">
-        <div class="column">
-            <h2>Bus List</h2>
-        </div>
-        <div class="column">
-            <img src ="{{ url_for('video_feed') }}" height="400" width="300">
-        </div>
+<style>
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+    <div>
+        <img src ="{{ url_for('video_feed') }}" height="400" width="300" class="center">
     </div>
 {% endblock %}

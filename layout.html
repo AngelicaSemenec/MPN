@@ -1,0 +1,68 @@
+{% extends "bootstrap/base.html" %}
+{% block html_attribs %} lang="en"{% endblock %}  <!-- Lang -->
+
+{% block head %} <!-- https://fontawesome.com/v4.7.0/get-started/ -->
+  {{ super() }}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css"
+  integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk"
+  crossorigin="anonymous">
+
+  {{ super() }}
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css"
+  integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P"
+  crossorigin="anonymous">
+
+  <!-- css -->
+  {{ super() }}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- static css -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css')}}">
+{{ super() }}
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- tab nav -->
+{{ super() }}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+{% endblock %}
+
+{% block title %} (Default) {% endblock %}     <!-- Title -->
+
+
+{% block navbar %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <a class="navbar-brand" href="/dashboard">
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS5hfiJ2XtRk8XwlQ5qT9nhQUmWLrSS1xTQ4PGMcHHGa-Za0_P0&usqp=CAU" style="max-width:60px; margin-top:-12px;"/>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <ul class="nav nav-pills nav-fill">
+      <li class="nav-item">
+          <a style="color:rgb(17, 29, 29)">Welcome, {{ username }}!</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('live_stream') }}">Live Stream</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('settings') }}">Settings</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+      </li>
+  </ul>
+</nav>
+
+{% endblock %}
+
+
+<!-- Empty block for content -->
+{% block content %}
+<!-- add css here -->
+{% endblock %}
