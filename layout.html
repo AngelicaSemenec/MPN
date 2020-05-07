@@ -19,12 +19,6 @@
   <!-- static css -->
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css')}}">
 
-
-  <!-- favicon -->
-  <!-- <link rel="apple-touch-icon" sizes="180x180" href=" {{ url_for('static', filename='img/favicon/apple-touch-icon.png') }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon/favicon-32x32.png') }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon/favicon-16x16.png') }}">
-  <link rel="manifest" href="{{ url_for('static', filename='img/favicon/site.webmanifest') }}"> -->
 {{ super() }}
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <!-- tab nav -->
@@ -45,35 +39,14 @@
   <p>A New Viewing Experience</p>
 </div>
 
-<!-- logo -->
-<!-- <header>
-<div class="navnav-header">
-  <a class="navbar-brand" href="/">
-     <img style="max-width:70px; margin-top: -7px;" src="{{ url_for('static', filename='img/logo/mainlogo.png') }}">
-  </a>
-</div>
-
-<!-- logout -->
-
-  <!-- <a href="/dashboard/">
-    <button type="button" class="btn btn-primary" style="margin-top: 5px; margin-bottom: 5px; height: 44px; margin-right: 15px">
-	  <span class="glyphicon glyphicon-off" style="margin-right: 10px" aria-hidden="true"></span>Logging Out</button></a>
-</header> -->
-
-
-
-
-
 <div class="container">
   <ul class="nav nav-pills nav-fill">
-
+    <li class="nav-item">
+      <a class="nav-link active ">{{ username }}</a>
+    </li>
     <li class="nav-item">
       <a class="nav-link " href="{{ url_for('dashboard') }}">Dashboard</a>
     </li>
-    <!-- <li class="nav-item">
-      <a class="nav-link" href="{{ url_for('cloudstorage') }}">Cloud Storage</a>
-    </li> -->
-
     <li class="nav-item">
       <a class="nav-link" href="{{ url_for('live_stream') }}">AWS S3</a>
     </li>
