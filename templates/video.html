@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+    <div>
+        <img src ="{{ url_for('video_feed') }}" height="400" width="300" class="center">
+    </div>
+{% endblock %}
