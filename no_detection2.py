@@ -3,8 +3,7 @@ import cv2
 import time
 
 
-#VIDEO_SRC3 = "static/video-streaming/fish4.mp4"
-VIDEO_SRC3 = "https://drive.google.com/open?id=1YQdbDE8lcA4kLMGFwd2P0oZ1SLK9b9QH"
+VIDEO_SRC3 = "static/video-streaming/fish4.mp4"
 
 sub = cv2.createBackgroundSubtractorMOG2()  # create background subtractor
 

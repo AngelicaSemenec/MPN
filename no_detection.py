@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, Res
 import cv2
 import time
 
-VIDEO_SRC1 = "static/images/tire2.jpeg"
+VIDEO_SRC1 = "static/video-streaming/goldfish.mp4"
 
 sub = cv2.createBackgroundSubtractorMOG2()  # create background subtractor
 
